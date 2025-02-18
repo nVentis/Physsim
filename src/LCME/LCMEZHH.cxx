@@ -314,7 +314,7 @@ namespace lcme{
   // --------------------------
   void LCMEZHH::SetZDecayMode(Int_t iDecayMode)
   {
-    std::cout << "set Z decay mode to be " << iDecayMode << std::endl;
+    //std::cout << "set Z decay mode to be " << iDecayMode << std::endl;
     fZDecayMode = iDecayMode;
     for (Int_t m=1; m<=fZBosonPtr->GetEntries(); m++) {
       GENDecayMode *mp = fZBosonPtr->GetMode(m); 
@@ -322,7 +322,7 @@ namespace lcme{
         mp->Lock();
       }
     }
-    fZBosonPtr->DebugPrint();
+    //fZBosonPtr->DebugPrint();
     fZModePtr = fZBosonPtr->GetMode(fZDecayMode); 
     f3Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(0));
     f4Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(1));

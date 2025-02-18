@@ -332,7 +332,7 @@ namespace lcme{
   // --------------------------
   void LCMEZZH::SetZDecayMode(Int_t iDecayMode1, Int_t iDecayMode2)
   {
-    std::cout << "set Z1 decay mode to be " << iDecayMode1 << std::endl;
+    //std::cout << "set Z1 decay mode to be " << iDecayMode1 << std::endl;
     fZ1DecayMode = iDecayMode1;
     for (Int_t m=1; m<=fZ1BosonPtr->GetEntries(); m++) {
       GENDecayMode *mp = fZ1BosonPtr->GetMode(m); 
@@ -340,12 +340,12 @@ namespace lcme{
         mp->Lock();
       }
     }
-    fZ1BosonPtr->DebugPrint();
+    //fZ1BosonPtr->DebugPrint();
     fZ1ModePtr = fZ1BosonPtr->GetMode(fZ1DecayMode); 
     f1Ptr = static_cast<GENPDTEntry *>(fZ1ModePtr->At(0));
     f2Ptr = static_cast<GENPDTEntry *>(fZ1ModePtr->At(1));
 
-    std::cout << "set Z2 decay mode to be " << iDecayMode2 << std::endl;
+    //std::cout << "set Z2 decay mode to be " << iDecayMode2 << std::endl;
     fZ2DecayMode = iDecayMode2;
     for (Int_t m=1; m<=fZ2BosonPtr->GetEntries(); m++) {
       GENDecayMode *mp = fZ2BosonPtr->GetMode(m); 
@@ -353,7 +353,7 @@ namespace lcme{
         mp->Lock();
       }
     }
-    fZ2BosonPtr->DebugPrint();
+    //fZ2BosonPtr->DebugPrint();
     fZ2ModePtr = fZ2BosonPtr->GetMode(fZ2DecayMode); 
     f3Ptr = static_cast<GENPDTEntry *>(fZ2ModePtr->At(0));
     f4Ptr = static_cast<GENPDTEntry *>(fZ2ModePtr->At(1));
