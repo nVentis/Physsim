@@ -62,7 +62,7 @@ namespace lcme{
     //   Base class methods
     // ----------------------
     Double_t GetMatrixElement2();                 // matrix element squared with weighted helicities
-    Double_t GetMatrixElement2(Int_t vHel[]);     // matrix element squared with specified helicities
+    // Double_t GetMatrixElement2ByHelicity(Int_t vHel[]);     // matrix element squared with specified helicities
     void     SetMomentumFinal(TLorentzVector vLortz[]); // set four-momenta of final states
     void     SetZDecayMode(Int_t iDecayMode1, Int_t iDecayMode2, Int_t iDecayMode);  // set Z decay mode
     

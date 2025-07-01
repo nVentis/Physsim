@@ -1,0 +1,48 @@
+{ decls }
+namespace lcme {  }
+
+[ libPhyssim.so ]
+# List of selected classes
+class ANL4DVector
+class GENBranch
+class GENDecayMode
+class GENFrame
+class GENModePicker
+class GENPDTEntry
+class GENPDTGluon
+class GENPDTPhoton
+class GENPDTWBoson
+class GENPDTZBoson
+class GENPhase2
+class HELFermion
+class HELScalar
+class HELVector
+class HELVertex
+class TVectorC
+class lcme::LCMEBase
+class lcme::LCMEEEH
+class lcme::LCMEEEZ
+class lcme::LCMENNH
+class lcme::LCMENNHH
+class lcme::LCMEWW
+class lcme::LCMEZH
+class lcme::LCMEZHH
+class lcme::LCMEZZ
+class lcme::LCMEZZH
+class lcme::LCMEZZZ
+class lcme::TAttLockable
+header physsim/ANL4DVector.h
+header physsim/GENLib.h
+header physsim/HELLib.h
+header physsim/LCMEBase.h
+header physsim/LCMEEEH.h
+header physsim/LCMEEEZ.h
+header physsim/LCMENNH.h
+header physsim/LCMENNHH.h
+header physsim/LCMEWW.h
+header physsim/LCMEZH.h
+header physsim/LCMEZHH.h
+header physsim/LCMEZZ.h
+header physsim/LCMEZZH.h
+header physsim/LCMEZZZ.h
+header physsim/TAttLockable.h

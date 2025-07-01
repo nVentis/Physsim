@@ -98,19 +98,12 @@ namespace lcme{
 	for (Int_t k=-1;k<=1;k+=2) {
 	  for (Int_t l=-1;l<=1;l+=2) {
 	    Int_t vHel[4] = {i,j,k,l};
-	    sigma += wE*wP*GetMatrixElement2(vHel);
+	    sigma += wE*wP*GetMatrixElement2ByHelicity(vHel);
 	  }
 	}
       }
     }
     
-    return (sigma);
-  }
-  Double_t LCMEZZZ::GetMatrixElement2(Int_t vHel[])
-  {
-    // with initial and final helicities combinations specified
-    SetHelicities(vHel);
-    Double_t sigma = DSigmaDX();
     return (sigma);
   }
   

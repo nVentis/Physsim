@@ -94,13 +94,13 @@ namespace lcme{
 	for (Int_t k=-1;k<=1;k++) {
 	  if (k==0 && fNoDecay==0) continue;
 	  Int_t vHel[3] = {i,j,k};
-	  sigma += wE*wP*GetMatrixElement2(vHel);
+	  sigma += wE*wP*GetMatrixElement2ByHelicity(vHel);
 	}
       }
     }
     return (sigma);
   }
-  Double_t LCMEZZ::GetMatrixElement2(Int_t vHel[])
+  Double_t LCMEZZ::GetMatrixElement2ByHelicity(Int_t vHel[])
   {
     // with initial and final helicities combinations specified
     if (!fNoDecay) {

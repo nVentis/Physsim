@@ -89,6 +89,24 @@ namespace lcme{
       return TMath::Sqrt(beta2);
     }
   }
+
+  //_____________________________________________________________________________
+  // --------------------------
+  //  GetMatrixElement2 for one helicity combination
+  // --------------------------
+  Double_t LCMEBase::GetMatrixElement2ByHelicity(Int_t vHel[])
+  {
+    // with initial and final helicities combinations specified
+    SetHelicities(vHel);
+    Double_t sigma = 0;
+    if (GetMEType() == 1) {
+      sigma = DSigmaDX(); // differential cross section
+    }
+    else if (GetMEType() == 2) {
+      sigma = TMath::Power(abs(FullAmplitude()), 2);  // squared matrix element
+    }
+    return (sigma);
+  }
   
   //_____________________________________________________________________________
   // --------------------------

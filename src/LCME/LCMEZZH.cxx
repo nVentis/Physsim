@@ -89,14 +89,14 @@ namespace lcme{
     Int_t vHelRLR[3] = {1,-1,1};
     Int_t vHelRRL[3] = {1,1,-1};
     Int_t vHelRRR[3] = {1,1,1};
-    Double_t sigmaLLL = GetMatrixElement2(vHelLLL);
-    Double_t sigmaLLR = GetMatrixElement2(vHelLLR);
-    Double_t sigmaLRL = GetMatrixElement2(vHelLRL);
-    Double_t sigmaLRR = GetMatrixElement2(vHelLRR);
-    Double_t sigmaRLL = GetMatrixElement2(vHelRLL);
-    Double_t sigmaRLR = GetMatrixElement2(vHelRLR);
-    Double_t sigmaRRL = GetMatrixElement2(vHelRRL);
-    Double_t sigmaRRR = GetMatrixElement2(vHelRRR);
+    Double_t sigmaLLL = GetMatrixElement2ByHelicity(vHelLLL);
+    Double_t sigmaLLR = GetMatrixElement2ByHelicity(vHelLLR);
+    Double_t sigmaLRL = GetMatrixElement2ByHelicity(vHelLRL);
+    Double_t sigmaLRR = GetMatrixElement2ByHelicity(vHelLRR);
+    Double_t sigmaRLL = GetMatrixElement2ByHelicity(vHelRLL);
+    Double_t sigmaRLR = GetMatrixElement2ByHelicity(vHelRLR);
+    Double_t sigmaRRL = GetMatrixElement2ByHelicity(vHelRRL);
+    Double_t sigmaRRR = GetMatrixElement2ByHelicity(vHelRRR);
     
     Double_t weightElectron = (1.-fPolElectron)/2.;
     Double_t weightPositron = (1.+fPolPositron)/2.;
@@ -104,13 +104,6 @@ namespace lcme{
     Double_t sigma = 0.;
     sigma += (sigmaLLL+sigmaLLR+sigmaLRL+sigmaLRR)*weightElectron*weightPositron;
     sigma += (sigmaRLL+sigmaRLR+sigmaRRL+sigmaRRR)*(1.-weightElectron)*(1.-weightPositron);
-    return (sigma);
-  }
-  Double_t LCMEZZH::GetMatrixElement2(Int_t vHel[])
-  {
-    // with initial and final helicities combinations specified
-    SetHelicities(vHel);
-    Double_t sigma = DSigmaDX();
     return (sigma);
   }
   

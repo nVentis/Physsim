@@ -46,13 +46,13 @@ namespace lcme {
     // ----------------------
     //   Base class methods
     // ----------------------
-    virtual Double_t GetMatrixElement2() = 0;             // matrix element squared with weighted helicities
-    virtual Double_t GetMatrixElement2(Int_t vHel[]) = 0; // matrix element squared with specified helicities
+    virtual Double_t GetMatrixElement2() = 0;                   // matrix element squared with weighted helicities
+    virtual Double_t GetMatrixElement2ByHelicity(Int_t vHel[]); // matrix element squared with specified helicities
     virtual void     SetMomentumFinal(TLorentzVector vLortz[]) = 0;   // set four-momenta of final states
     void             SetBeamPol(Double_t polE, Double_t polP);    // set beam polarisations
     inline Double_t  GetBeamPolE() {return fPolElectron;};    // get electron beam polarisation
     inline Double_t  GetBeamPolP() {return fPolPositron;};    // get positron beam polarisation
-    inline void      SetMEType(Int_t i) {fMEType = i;};   // set fMEType to return matrix element or different cross section
+    inline void      SetMEType(Int_t i) {fMEType = i;};   // set fMEType to return squarred matrix element (2) or different cross section (1)
     inline Int_t     GetMEType() {return fMEType;};   // get fMEType
     inline Int_t     GetPropagatorType() {return fPropagatorType;};   // get fPropatatorType
     inline void      SetPropagatorType(Int_t i) {fPropagatorType = i;};   // set fPropatatorType

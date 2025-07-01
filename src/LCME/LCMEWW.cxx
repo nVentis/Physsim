@@ -90,20 +90,7 @@ namespace lcme{
       if (i==-1) {wE = weightElectron; wP = weightPositron;}        // (e-,e+)=(-1,1)
       if (i==1)  {wE = 1.-weightElectron; wP = 1.-weightPositron;}  // (e-,e+)=(1,-1)
       Int_t vHel[1] = {i};
-      sigma += wE*wP*GetMatrixElement2(vHel);
-    }
-    return (sigma);
-  }
-  Double_t LCMEWW::GetMatrixElement2(Int_t vHel[])
-  {
-    // with initial and final helicities combinations specified
-    SetHelicities(vHel);
-    Double_t sigma = 0;
-    if (GetMEType() == 1) {
-      sigma = DSigmaDX();   // differential cross section
-    }
-    else if (GetMEType() == 2) {
-      sigma = TMath::Power(abs(FullAmplitude()),2);  // squared matrix element
+      sigma += wE*wP*GetMatrixElement2ByHelicity(vHel);
     }
     return (sigma);
   }

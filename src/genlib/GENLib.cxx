@@ -244,8 +244,12 @@ void GENPDTEntry::DebugPrint(const Option_t *opt)
    Update();
    TIter next(this);
    GENDecayMode *mp;
+   Int_t i = 1;
+
    while ((mp = static_cast<GENDecayMode *>(next()))) {
+      cerr << "DecayID = " << i << ": ";
       mp->DebugPrint(opt);
+      i += 1;
    }
    cerr << " --------------------------------------------------------- " << endl
         << " Gamma_tot = " << GetWidth() << " [GeV]"                     << endl

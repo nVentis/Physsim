@@ -71,10 +71,10 @@ namespace lcme{
     Int_t vHelLR[2] = {-1,1};
     Int_t vHelRL[2] = {1,-1};
     Int_t vHelRR[2] = {1,1};
-    Double_t sigmaLL = GetMatrixElement2(vHelLL);
-    Double_t sigmaLR = GetMatrixElement2(vHelLR);
-    Double_t sigmaRL = GetMatrixElement2(vHelRL);
-    Double_t sigmaRR = GetMatrixElement2(vHelRR);
+    Double_t sigmaLL = GetMatrixElement2ByHelicity(vHelLL);
+    Double_t sigmaLR = GetMatrixElement2ByHelicity(vHelLR);
+    Double_t sigmaRL = GetMatrixElement2ByHelicity(vHelRL);
+    Double_t sigmaRR = GetMatrixElement2ByHelicity(vHelRR);
     
     Double_t weightElectron = (1.-fPolElectron)/2.;
     Double_t weightPositron = (1.+fPolPositron)/2.;
@@ -84,13 +84,12 @@ namespace lcme{
     sigma += (sigmaRL+sigmaRR)*(1.-weightElectron)*(1.-weightPositron);
     return (sigma);
   }
-  Double_t LCMENNHH::GetMatrixElement2(Int_t vHel[])
+  Double_t LCMENNHH::GetMatrixElement2ByHelicity(Int_t vHel[])
   {
     // with initial and final helicities combinations specified
     if (vHel[1] != -1) return 0.;
-    SetHelicities(vHel);
-    Double_t sigma = DSigmaDX();
-    return (sigma);
+    
+    return LCMEBase::GetMatrixElement2ByHelicity(vHel);
   }
   
   //_____________________________________________________________________________

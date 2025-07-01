@@ -77,10 +77,10 @@ namespace lcme{
     Int_t vHelLR[2] = {-1,1};
     Int_t vHelRL[2] = {1,-1};
     Int_t vHelRR[2] = {1,1};
-    Double_t sigmaLL = GetMatrixElement2(vHelLL);
-    Double_t sigmaLR = GetMatrixElement2(vHelLR);
-    Double_t sigmaRL = GetMatrixElement2(vHelRL);
-    Double_t sigmaRR = GetMatrixElement2(vHelRR);
+    Double_t sigmaLL = GetMatrixElement2ByHelicity(vHelLL);
+    Double_t sigmaLR = GetMatrixElement2ByHelicity(vHelLR);
+    Double_t sigmaRL = GetMatrixElement2ByHelicity(vHelRL);
+    Double_t sigmaRR = GetMatrixElement2ByHelicity(vHelRR);
     
     Double_t weightElectron = (1.-fPolElectron)/2.;
     Double_t weightPositron = (1.+fPolPositron)/2.;
@@ -88,13 +88,6 @@ namespace lcme{
     Double_t sigma = 0.;
     sigma += (sigmaLL+sigmaLR)*weightElectron*weightPositron;
     sigma += (sigmaRL+sigmaRR)*(1.-weightElectron)*(1.-weightPositron);
-    return (sigma);
-  }
-  Double_t LCMEZHH::GetMatrixElement2(Int_t vHel[])
-  {
-    // with initial and final helicities combinations specified
-    SetHelicities(vHel);
-    Double_t sigma = DSigmaDX();
     return (sigma);
   }
   
@@ -326,7 +319,26 @@ namespace lcme{
     fZModePtr = fZBosonPtr->GetMode(fZDecayMode); 
     f3Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(0));
     f4Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(1));
-    
+  }
+
+  //_____________________________________________________________________________
+  // --------------------------
+  //  Set Z decay mode
+  // --------------------------
+  void LCMEZHH::SetZDecayMode(const char* iDecayName)
+  {
+    //std::cout << "set Z decay mode to be " << iDecayMode << std::endl;
+    for (Int_t m=1; m<=fZBosonPtr->GetEntries(); m++) {
+      GENDecayMode *mp = fZBosonPtr->GetMode(m); 
+      if (mp && (mp->GetName() != iDecayName)) {
+        fZDecayMode = m;
+        mp->Lock();
+      }
+    }
+    //fZBosonPtr->DebugPrint();
+    fZModePtr = fZBosonPtr->GetMode(fZDecayMode); 
+    f3Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(0));
+    f4Ptr = static_cast<GENPDTEntry *>(fZModePtr->At(1));
   }
   
   //_____________________________________________________________________________
